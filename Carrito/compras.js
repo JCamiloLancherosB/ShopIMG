@@ -863,3 +863,5 @@ cambiaColor.addEventListener("click", function(){
     change = 1;
     }
 })
+
+//UN SIMPLE CAMBIO
