@@ -1,0 +1,597 @@
+*:link {
+    color: #331755;
+}
+
+*:visited {
+    color: #331755;
+}
+
+body{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    min-height: 100vh;
+}
+
+body, html {
+    margin: 0;
+    padding: 0;
+}
+
+#opaco:not(#logo, #overlapping) {
+    opacity: .5;
+    background-color: grey;
+}
+
+#logo {
+    opacity: 1;
+}
+
+#opacoE {
+    opacity: .5;
+    background-color: grey;
+}
+
+#overlapping {
+    position: fixed;
+    height: 700px; 
+    width: auto; 
+    top: 15%; 
+    right: 31.9%;
+    z-index: 3;
+}
+
+.precio {
+    width: 100%;
+    background-color: beige;
+    z-index: 2;
+}
+
+#header {
+    /* display: flex; */
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    height: 80px;
+    color: white;
+    background: #331755;
+    z-index: 4;
+    display: grid;
+    grid-template-rows: repeat(3, auto);
+    grid-template-columns: repeat(6, auto);
+    grid-template-areas:
+    "logo . . . . lat"
+    "logo bar bar bar . lat"
+    "logo select select select . lat"
+    ;
+}
+
+#selecciona {
+    position: absolute;
+    grid-area: select;
+    width: 652px;
+    top: -22px;
+    visibility: hidden;
+    background-color: #A0B17F;
+    border: 1px solid #331755;
+    border-top: none;
+    border-radius: 0 0 4px 4px;
+    cursor: url("../IMGSFirst/cursor2.png"), pointer;
+}
+
+#selecciona ul {
+    list-style-position: inside;
+    list-style-type: none;
+    text-align: left;
+    padding-left: 32px;
+    margin-bottom: 0px;
+    margin-top: 20px;
+    color: #331755;
+    margin-left: -32px;
+}
+
+.busca::before {
+    content: "";
+    display: inline-block;
+    width: 20px; 
+    height: 22px; 
+    vertical-align: middle; 
+    background-image: url("../IMGSFirst/lupasearch.png");
+    background-repeat: no-repeat;
+    margin-right: 8px; 
+}
+
+.busca {
+    border: none;
+}
+
+.encontrados::before {
+    content: "";
+    display: inline-block;
+    width: 20px; 
+    height: 15px; 
+    vertical-align: middle; 
+    background-image: url("../IMGSFirst/historial.png");
+    background-repeat: no-repeat;
+    margin-right: 8px;
+}
+
+.encontrados {
+    border: none;
+} 
+
+#buscador {
+    width: 600px;
+    height: 40px;
+    border: 1px solid #331755;
+    border-right: none;
+    border-radius: 4px 0 0 4px;
+    outline: none;
+    transform: none;   
+    font-weight: 540;
+    z-index: 3;
+}
+
+#lupa {
+    border: none;
+    border-left: 1px solid #331755;
+    background-color: white;
+    cursor: pointer;
+}
+
+#lupa img {
+    height: 100%;
+    width: 30px;
+    border: none;
+    margin-left: 5px;
+    margin-top: 4px;
+    z-index: 1;
+}
+
+#btn-search {
+    height: 44px;
+    z-index: 1;
+    background-color: white; 
+    border: 1px solid #331755;
+    border-left: none;
+    border-radius: 0 4px 4px 0;
+}
+
+#btn-search:focus {
+    border: 1px solid #331755;
+    border-left: none;
+}
+
+#bar-search {
+    display: flex;
+    grid-area: bar;
+    align-items: center;
+    justify-content: center;
+}
+
+#btnLat {
+    justify-self: end;
+    align-self: center;
+    grid-area: lat;
+    border: 1px solid #331755;
+    background-color: white;
+    height: 46px;
+    width: 50px;
+    margin: 10px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+#barLat {
+    position: fixed;
+    border-left: 1px solid #331755;    
+    width: 400px;
+    height: 1000px;
+    z-index: 4;
+    background-color: whitesmoke;
+    right: 0px;
+    top: 0;    
+    text-align: center;
+    visibility: hidden;
+    margin: 0px;
+}
+
+#barLat span {
+    font-weight: bold;
+    font-size: xx-large;
+}
+
+#barLat li {
+    text-align: left;
+    list-style: none;
+}
+
+#btnLat img {
+    height: 40px;
+}
+
+#logo {
+    grid-area: logo;
+    height: 100%;
+    width: 200px;
+    background-image: url("../IMGSFirst/logo.png");
+    background-position: center;
+    background-size: cover;
+    cursor: url("../IMGSFirst/cursor2.png"), pointer;
+    border-right:3px solid black;
+    border-left: 3px solid black;
+}
+
+strong {   
+    font-style: italic; 
+    color: #331755;
+    font-size:xx-large;
+}
+
+h1 {
+    height: 40px;
+}
+
+.productos {
+    position: relative;
+    height: 400px;
+    width: 100%;
+    font-weight: bolder;
+    font-size: large;
+    text-align: center;
+}
+
+.productos td {
+    text-align: center;
+    vertical-align: middle;
+}
+
+.productos tr {
+    display: flex;
+    border-top: 1px solid #331755;
+    /* border-bottom: 2px solid #331755; */
+    width: 1897px;
+    overflow-x: hidden;
+    overflow-y: hidden;
+}
+
+.productos td:not(.des, .izq) {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    /* width: 20%; */
+    height: 400px;
+    border-left: 1px solid #3c2e4d;
+    /* border-right: 1px solid #3c2e4d; */
+    background-color: #5F6B47;    
+    /* overflow: hidden; */
+    max-width: 376px;
+    min-width: 376px;
+    overflow: hidden;
+}
+
+.productos img:not(.des img, .izq img, .divBtn img) {
+    position: absolute;
+    top: 12%;
+    height: 300px;
+    width: 300px;
+    object-fit: contain;
+    /* border: 1px solid black; */
+    transition: transform 0.3s;    
+    /* background-color: grey; */
+}
+
+.productos td:hover .imgs:not(.des, .izq) {
+    position: absolute;
+    /* opacity: .8; */
+    transform: scale(1.4);
+    /* border: 1px solid #3c2e4d; */
+    z-index: 1;
+    /* width: 75%; */
+}
+
+.desDer {
+    height: 22px;
+    width: 38px;
+    rotate: 90deg;
+    /* position: absolute; */
+    background-color: transparent;
+    border: none;
+    /* right: -925px;
+    top: 260px; */
+    z-index: 3;
+    cursor: pointer;
+    /* border-radius: 10px; */
+    overflow: hidden;
+    /* border: 1px solid black; */    
+}
+
+.desDer img {
+    position: relative;
+    height: 60px;
+    border: none;
+    top: -20px;
+    right: 17px;
+    /* right: 18px; */
+    /* top: -20px; */
+    pointer-events: none;
+    /* border: 1px solid red; */
+    z-index: 3;
+}
+
+.des {
+    position: absolute;
+    /* height: 10px;
+    width: 10px; */
+    top: 50%;
+    right: 0px;
+    z-index: 3;
+}
+
+.desIzq {
+    height: 22px;
+    width: 38px;
+    rotate: -90deg;
+    /* position: absolute; */
+    background-color: transparent;
+    border: none;
+    /* right: -925px;
+    top: 260px; */
+    z-index: 3;
+    cursor: pointer;
+    /* border-radius: 10px; */
+    overflow: hidden;
+    /* border: 1px solid black; */
+}
+
+.desIzq img {
+    position: relative;
+    height: 60px;
+    border: none;
+    top: -20px;
+    right: 17px;
+    /* right: 18px; */
+    /* top: -20px; */
+    pointer-events: none;
+    /* border: 1px solid red; */
+    z-index: 3;
+}
+
+.izq {
+    position: absolute;
+    /* height: 10px;
+    width: 10px; */
+    top: 50%;
+    left: 0px;
+    z-index: 3;
+    visibility: hidden;
+}
+
+#complementar {
+    cursor: pointer;
+}
+
+.precio {
+    position: absolute;
+    bottom: 0;
+}
+
+.enfocado {
+    position: absolute;
+    background-color: rgba(0, 0, 0, .6);
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.8; 
+    z-index: 2;
+}
+
+.divBtn {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 3;
+}
+
+/* .divBtn div {
+    position: relative;
+    width: 100%;
+    height: 100%;
+} */
+
+.divBtn button:not(.btnDetails, .btnFavorite) {
+    height: 20px;
+    width: 20px;
+    z-index: 10;
+    z-index: 3;
+}
+
+.divBtn img {
+    cursor: pointer;
+}
+
+.btnView {
+    position: absolute;
+    left: 10px;
+    top: 15px;
+    background-color: transparent;
+    border: none;
+    z-index: 5;    
+}
+
+.btnView img {
+    position: absolute;
+    top: -7px;
+    right: - 4px;
+}
+
+.btnDetails {
+    position: absolute;
+    left: 35%;
+    top: 50%;
+    /* height: 30px; scale
+    width: 30px; */
+    background-color: transparent;
+    border: none;
+    z-index: 5;   
+}
+
+.btnDetails img {
+    position: absolute;
+    top: -7px;
+    right: - 4px;
+    height: 40px;    
+    cursor: pointer; 
+}
+
+.btnCart {
+    position: absolute;
+    right: 35%;
+    top: 50%;
+    background-color: transparent;
+    border: none;
+    z-index: 5;    
+}
+
+.btnCart img {
+    position: absolute;
+    top: -7px;
+    right: - 4px;    
+    height: 40px;
+    cursor: pointer;
+}
+
+.btnFavorite {
+    position: absolute;
+    right: 30px;
+    top: 15px;
+    background-color: transparent;
+    border: none;
+    z-index: 5;    
+}
+
+.btnFavorite img {
+    position: absolute;
+    top: -7px;
+    right: - 4px;
+}
+
+div {    
+    text-align: center;
+    font-size: larger;
+    font-weight: bold;
+}
+
+
+/* .containerA strong {   
+    font-style: italic; 
+    color: #331755;
+} */
+
+/*              LVHA              */
+
+section a:link {
+    background-color: transparent;
+    color: #331755;
+    text-decoration: none;
+}
+
+section a:visited{
+    background-color: transparent;
+    color: #331755;
+    text-decoration: none;
+}
+
+footer {
+    display: flex;
+    margin-top: auto;
+    align-items: center;
+    justify-content: center;
+    border-top: 1px solid black;
+    height: 50px;
+}
+
+.footer {
+    font-style: oblique; 
+    font-size: medium; 
+    opacity: 0.5;
+}
+
+.footer a {
+    text-decoration: none;
+}
+
+#toSearch {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    top: 100px;
+    height: 200px;
+}
+
+#toSearch p {
+    font-weight: bold;
+    font-size: larger;
+}
+
+#toSearch img {
+    height: 80px;
+    margin-right: 50px;
+}
+
+#arrowUp {
+    position: fixed;
+    display: flex;
+    /* background-color: #7b9c81; */
+    top: 945px;
+    width: 19px;
+    height: 19px;
+    border-radius: 8px;
+    left: 5px;
+    z-index: 2;
+    cursor: pointer;
+    border: 1px solid #331755;
+}
+
+#arrowUp button {
+    position: relative;
+    width: 20px;
+    height: 20px;
+    border: none;
+    background-color: transparent;
+    z-index: 2;
+    cursor: pointer;
+}
+
+#arrowUp img {
+    position: absolute;
+    top: -10px;
+    left: -2px;
+    width: 23px;
+    height: 24px;
+}
+
+
+/* #arrowUp div {
+    border: 1px solid black;
+    
+} */
+
+/* #arrowUp {    
+    height: 44px;
+    z-index: 1;
+    background-color: white; 
+    border: 1px solid #331755;
+    border-left: none;
+    border-radius: 0 4px 4px 0;
+}
+
+#arrowUp:focus { 
+    border: 1px solid #331755;
+    /* border-left: none;
+    border-bottom: none; }*/
+  
