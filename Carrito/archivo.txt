@@ -1,2 +1,0 @@
-Acá un archivo para añadir notas que no se incluira en GIT
-Actualizando txt
