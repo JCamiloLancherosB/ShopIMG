@@ -1,10 +1,11 @@
 document.addEventListener("DOMContentLoaded", () => {produc()});
-
+// import {valor} from "./modules.js";
+// console.log(valor)
 let dato
 
 const produc = async() => {
     try {
-        const res = await fetch("productos.json");
+        const res = await fetch("../JSON/productos.json");
         dato = await res.json();
         return dato;
     } catch(error){
@@ -29,7 +30,7 @@ const botonesOver = document.getElementsByClassName("overlay");
 const lat = document.getElementById("barLat");
 let counterBtn1 = 0;
 
-const creaTd = (elementos, fragmento) => {
+const creaTd = (elementos, fragmento) => { //Crea los productos de las tablas, adjuntando imagenes, precios, botones de visualizar, favorito... También añade la función de overlay cuando se hace clic sobre botón de visualizar imagen en grande
     const td = document.createElement("td"), img = document.createElement("img"), div = document.createElement("div");
     td.textContent = elementos.nombre.toUpperCase();
     const precio = document.createTextNode(elementos.precio), precio2 = document.createElement("span");
@@ -45,13 +46,13 @@ const creaTd = (elementos, fragmento) => {
     boton3.setAttribute("class", "btnCart");
     boton4.setAttribute("class", "btnFavorite");
     const img1 = document.createElement("img"), img2 = document.createElement("img"), img3 = document.createElement("img"), img4 = document.createElement("img");
-    img1.setAttribute("src", "../IMGSFirst/expandir2.png");
+    img1.setAttribute("src", "../../IMGSFirst/expandir2.png");
     img1.setAttribute("title", "View");
-    img2.setAttribute("src", "../IMGSFirst/details.png");
+    img2.setAttribute("src", "../../IMGSFirst/details.png");
     img2.setAttribute("title", "View Details");
-    img3.setAttribute("src", "../IMGSFirst/carrito2.png");
+    img3.setAttribute("src", "../../IMGSFirst/carrito2.png");
     img3.setAttribute("title", "Add to cart");
-    img4.setAttribute("src", "../IMGSFirst/favorite.png");
+    img4.setAttribute("src", "../../IMGSFirst/favorite.png");
     img4.setAttribute("title", "Add to favorites");
     divBtn.setAttribute("class", "divBtn");
     boton1.appendChild(img1);
@@ -68,7 +69,7 @@ const creaTd = (elementos, fragmento) => {
     td.appendChild(divBtn);
     td.appendChild(div);
     td.appendChild(img);
-    td.addEventListener("click", function(e){open(`./ProdyAcc/${elementos.nombre}.html`, "_blank");});
+    td.addEventListener("click", function(e){open(`../HTML/ProdyAcc/${elementos.nombre}.html`, "_blank");});
     td.addEventListener("mouseover", function(){
         enfocado(img, div);
         divBtn.style.visibility = "visible";
@@ -109,8 +110,8 @@ const creaTd = (elementos, fragmento) => {
     boton2.addEventListener("click", function(e){e.stopPropagation();});
     boton3.addEventListener("click", function(e){e.stopPropagation();});
     boton4.addEventListener("click", function(e){e.stopPropagation();});
-    boton4.addEventListener("mouseover", function(e){img4.src = "../IMGSFirst/favorite3.png"});
-    boton4.addEventListener("mouseout", function(e){img4.src = "../IMGSFirst/favorite.png"});
+    boton4.addEventListener("mouseover", function(e){img4.src = "../../IMGSFirst/favorite3.png"});
+    boton4.addEventListener("mouseout", function(e){img4.src = "../../IMGSFirst/favorite.png"});
     fragmento.appendChild(td);
 }
 
@@ -211,7 +212,7 @@ const productos = (dato) => {
     // fragmentoAcc.appendChild(tdArrow);
     // fragmentoProd.appendChild(tdArrow);
     const tdArrow = document.createElement("td"), des = document.createElement("button"), img = document.createElement("img");
-    img.setAttribute("src", "../IMGSFirst/desIzq.png");
+    img.setAttribute("src", "../../IMGSFirst/desIzq.png");
     des.setAttribute("class", "desDer");
     tdArrow.setAttribute("class", "des");
     des.appendChild(img);
@@ -222,8 +223,12 @@ const productos = (dato) => {
     fragmentoAcc.appendChild(tdArrow);
 
     const prod = document.querySelectorAll(".productos tr")
+    if(document.title === "Shop") {
     prod[0].appendChild(fragmentoProd);
     prod[1].appendChild(fragmentoAcc);
+    }
+
+    // const head = document.getElementByTagName(head);
     //<td class="des"><button class="desDer"><img src=../IMGSFirst/desIzq.png"></button></td>
 };
 
@@ -798,69 +803,68 @@ buscador.addEventListener("focus", function(e){
 // Perro.prototype = new Animal(); 
 // Perro.prototype.constructor = Perro;
 
-class BotonAzul {
-    constructor(color, alto, ancho, bordes) {
-        this.color = color;
-        this.alto = alto;
-        this.ancho = ancho;
-        this.bordes = bordes;
-    }
+// class BotonAzul {
+//     constructor(color, alto, ancho, bordes) {
+//         this.color = color;
+//         this.alto = alto;
+//         this.ancho = ancho;
+//         this.bordes = bordes;
+//     }
 
-    creaUnBoton(ruta){
-        const btn = document.createElement("button");
+//     creaUnBoton(ruta){
+//         const btn = document.createElement("button");
 
-        btn.style.backgroundColor = this.color;
-        btn.style.height = this.alto;
-        btn.style.width = this.ancho;
-        btn.style.border = this.bordes;
-        btn.setAttribute("id", "btnChange");
+//         btn.style.backgroundColor = this.color;
+//         btn.style.height = this.alto;
+//         btn.style.width = this.ancho;
+//         btn.style.border = this.bordes;
+//         btn.setAttribute("id", "btnChange");
 
-        ruta.appendChild(btn);
-    }
+//         ruta.appendChild(btn);
+//     }
 
-    // secondButton(ruta){        
-    //     const changeColor = document.createElement("button");
-
-
-    // }
-
-    set setBColor(newColor) {
-        const btn = document.getElementById("btnChange");
-        this.color = newColor; 
-        btn.style.backgroundColor = newColor;
-    }
-
-    set setBorder(borde) {
-        const btn = document.getElementById("btnChange");
-        this.bordes = borde;
-        btn.style.border = borde;
-    }
-
-}
-
-const btn1 = new BotonAzul("yellow", "200px", "200px", "1px solid blue");
-btn1.creaUnBoton(opac);
+//     // secondButton(ruta){        
+//     //     const changeColor = document.createElement("button");
 
 
-const cambiaColor = document.getElementById("btnChange");
+//     // }
 
-cambiaColor.addEventListener("click", function(){
-    let change = 0;
+//     set setBColor(newColor) {
+//         const btn = document.getElementById("btnChange");
+//         this.color = newColor; 
+//         btn.style.backgroundColor = newColor;
+//     }
 
-    if(cambiaColor.style.backgroundColor === "yellow" && change === 0){
-    btn1.setBColor = "blue";
-    btn1.setBorder = "1px solid red";
-    change = 1;
-    }
-    if(cambiaColor.style.backgroundColor === "blue" && change === 0){
-    btn1.setBColor = "red";
-    btn1.setBorder = "1px solid yellow";
-    change += 1;
-    }
-    if(cambiaColor.style.backgroundColor === "red" && change === 0){
-    btn1.setBColor = "yellow";
-    btn1.setBorder = "1px solid blue";
-    change = 1;
-    }
-})
+//     set setBorder(borde) {
+//         const btn = document.getElementById("btnChange");
+//         this.bordes = borde;
+//         btn.style.border = borde;
+//     }
 
+// }
+
+// const btn1 = new BotonAzul("yellow", "200px", "200px", "1px solid blue");
+// btn1.creaUnBoton(opac);
+
+
+// const cambiaColor = document.getElementById("btnChange");
+
+// cambiaColor.addEventListener("click", function(){
+//     let change = 0;
+
+//     if(cambiaColor.style.backgroundColor === "yellow" && change === 0){
+//     btn1.setBColor = "blue";
+//     btn1.setBorder = "1px solid red";
+//     change = 1;
+//     }
+//     if(cambiaColor.style.backgroundColor === "blue" && change === 0){
+//     btn1.setBColor = "red";
+//     btn1.setBorder = "1px solid yellow";
+//     change += 1;
+//     }
+//     if(cambiaColor.style.backgroundColor === "red" && change === 0){
+//     btn1.setBColor = "yellow";
+//     btn1.setBorder = "1px solid blue";
+//     change = 1;
+//     }
+// })
