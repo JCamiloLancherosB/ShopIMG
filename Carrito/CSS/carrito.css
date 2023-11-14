@@ -61,10 +61,32 @@ body, html {
     grid-template-rows: repeat(3, auto);
     grid-template-columns: repeat(6, auto);
     grid-template-areas:
-    "logo . . . . lat"
+    "logo . . . . lat" 
+    /* Antes de lat va el . */
     "logo bar bar bar . lat"
     "logo select select select . lat"
     ;
+}
+
+#clock {
+    position: absolute;
+    width: 200px;   
+    top: -5px;
+    left: -45px;
+}
+
+#clock1 {
+    display: inline;
+    position: relative;
+    /* background-color: #3c2e4d;
+    border: 2px solid black; */
+    height: 50px;
+    width: 120px;
+    right: -850px;
+    top: -15px;
+    /* justify-self: end;
+    align-self: center; */
+    /* grid-area: reloj; */
 }
 
 #selecciona {

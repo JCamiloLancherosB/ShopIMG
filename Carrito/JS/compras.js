@@ -13,12 +13,12 @@ const produc = async() => {
     }
 }
 
-
+console.time("Contador");
 produc().then(dato => {
     productos(dato);
     push(dato);
 });
-
+console.timeEnd("Contador");
 const btnLupa = document.getElementById("btn-search"), lupa = document.getElementById("lupa"), buscador = document.getElementById("buscador"), lupaImg = document.querySelector("#lupa img"), barra = document.getElementById("bar-search"); 
 const seleccion = document.getElementById("selecciona"), listaProd = document.querySelector("#selecciona ul");
 const nombres = [], pdt = [];
@@ -651,7 +651,7 @@ listaProd.addEventListener("mouseout", function(e){
     }
 }
 })
-
+console.time("Busqueda");
 buscador.addEventListener("input", function(){
     const valor = buscador.value.toLowerCase();
     const img = document.querySelector("#selecciona ul");
@@ -693,7 +693,7 @@ buscador.addEventListener("input", function(){
     }
 }
 })
-
+console.timeEnd("Busqueda");
 buscador.addEventListener("focus", function(e){
     e.stopPropagation();
 
@@ -868,3 +868,16 @@ buscador.addEventListener("focus", function(e){
 //     change = 1;
 //     }
 // })
+
+const clock = document.getElementById("clock");
+clock.textContent = new Date().toLocaleTimeString();
+
+const time = () => {    
+    clock.textContent = `${new Date().getHours()}:${new Date().getMinutes()}:${new Date().getSeconds()}`; 
+}
+setInterval(() => {
+    time();
+}, 1000)
+
+// clearInterval(time2);
+// hora()
