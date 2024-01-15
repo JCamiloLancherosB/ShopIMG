@@ -1,0 +1,12 @@
+{
+    "PantalonH": [
+    {
+        "pantalon1": {"tallas": 1, "estilo": 1, "color": 0, "bota": 1, "material": 0, "precio": 0, "disponibles": 0}
+    }
+    ],
+    "PantalonM": [
+    {
+        "pantalon1": {"tallas": 1, "estilo": 1, "botones": 1 ,"color": 0, "bota": 1, "material": 0, "precio": 0, "disponibles": 0}
+    }
+    ]
+}

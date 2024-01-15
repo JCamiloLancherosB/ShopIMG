@@ -6,7 +6,9 @@
         "nombre": "pantalones", 
         "precio": "$30 - $100", 
         "disponibles": 20,
-        "img": "../../IMGSFirst/prendas/pantalones.png"
+        "img": "../../IMGSFirst/prendas/pantalones.png",
+        "jeansH": {"estilo": "", "botones": 3, "color": 1, "tallas": 1, "material": 1, "bota": 1, "ref": 1, "disponibles": 1},
+        "jeansM": {"tallas": 1, "material": 1, "color": 1, "bota": 1, "ref": 1, "disponibles": 1}
     },
     {
         "pdt": "Producto 2",
@@ -14,7 +16,12 @@
         "nombre": "camisas", 
         "precio": "$20 - $80", 
         "disponibles": 20,
-        "img": "../../IMGSFirst/prendas/camisa.png"
+        "img": "../../IMGSFirst/prendas/camisa.png",
+        "camisaLarga": {"precio": 1, "disponibles": 1}, 
+        "camisaCorta": {"precio": 1, "disponibles": 1},
+        "camisaPolo": {"precio": 1, "disponibles": 1}, 
+        "camisa": {"camisa1": {"precio": 1, "disponibles": 1},
+        "camisa2": {"precio": 1, "disponibles": 1}}
     },
     {
         "pdt": "Producto 3",

@@ -11,6 +11,7 @@ body{
     flex-direction: column;
     text-align: center;
     min-height: 100vh;
+    /* width: 1784px; */
 }
 
 body, html {
@@ -50,6 +51,7 @@ body, html {
 #header {
     /* display: flex; */
     position: fixed;
+    display: grid;
     top: 0px;
     left: 0px;
     right: 0px;
@@ -57,12 +59,10 @@ body, html {
     color: white;
     background: #331755;
     z-index: 4;
-    display: grid;
     grid-template-rows: repeat(3, auto);
     grid-template-columns: repeat(6, auto);
     grid-template-areas:
     "logo . . . . lat" 
-    /* Antes de lat va el . */
     "logo bar bar bar . lat"
     "logo select select select . lat"
     ;
@@ -70,20 +70,23 @@ body, html {
 
 #clock {
     position: absolute;
-    width: 200px;   
-    top: -5px;
-    left: -45px;
+    /* width: 200px;    */
+    /* top: -5px; */
+    left: 30px;
+    color: #5F6B47;
+    border: 1px solid #5F6B47;
 }
 
 #clock1 {
-    display: inline;
     position: relative;
+    display: inline;
+    z-index: 5;
     /* background-color: #3c2e4d;
     border: 2px solid black; */
     height: 50px;
     width: 120px;
-    right: -850px;
-    top: -15px;
+    right: -750px;
+    top: -90px;
     /* justify-self: end;
     align-self: center; */
     /* grid-area: reloj; */
@@ -394,6 +397,24 @@ h1 {
     cursor: pointer;
 }
 
+.name {
+    width: 100%;
+    /* z-index: 2; */
+    top: 0;
+    position: absolute;
+    /* background-color: beige; */
+}
+
+.seeing {
+    position: fixed;
+    z-index: 5;
+    left: 0;
+    top: 0px;
+    width: 500px;
+    height: 100%;
+    background-color: #A0B17F;
+}
+
 .precio {
     position: absolute;
     bottom: 0;
@@ -616,4 +637,3 @@ footer {
     border: 1px solid #331755;
     /* border-left: none;
     border-bottom: none; }*/
-  

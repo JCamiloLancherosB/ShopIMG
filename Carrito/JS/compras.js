@@ -13,12 +13,12 @@ const produc = async() => {
     }
 }
 
-console.time("Contador");
+// console.time("Contador");
 produc().then(dato => {
     productos(dato);
     push(dato);
 });
-console.timeEnd("Contador");
+// console.timeEnd("Contador");
 const btnLupa = document.getElementById("btn-search"), lupa = document.getElementById("lupa"), buscador = document.getElementById("buscador"), lupaImg = document.querySelector("#lupa img"), barra = document.getElementById("bar-search"); 
 const seleccion = document.getElementById("selecciona"), listaProd = document.querySelector("#selecciona ul");
 const nombres = [], pdt = [];
@@ -31,8 +31,12 @@ const lat = document.getElementById("barLat");
 let counterBtn1 = 0;
 
 const creaTd = (elementos, fragmento) => { //Crea los productos de las tablas, adjuntando imagenes, precios, botones de visualizar, favorito... También añade la función de overlay cuando se hace clic sobre botón de visualizar imagen en grande
-    const td = document.createElement("td"), img = document.createElement("img"), div = document.createElement("div");
-    td.textContent = elementos.nombre.toUpperCase();
+    const td = document.createElement("td"), img = document.createElement("img"), div = document.createElement("div"), name = document.createElement("span");
+    const name2 = document.createTextNode(elementos.nombre.toUpperCase());
+    name.appendChild(name2);
+    name.setAttribute("class", "name");
+    td.appendChild(name);
+    // td.textContent = elementos.nombre.toUpperCase();
     const precio = document.createTextNode(elementos.precio), precio2 = document.createElement("span");
     precio2.setAttribute("class", "precio");
     precio2.appendChild(precio);
@@ -107,7 +111,27 @@ const creaTd = (elementos, fragmento) => { //Crea los productos de las tablas, a
         // img.style.transform = "scale(1.5)"
         // img.style.objectFit = "none"
     });
-    boton2.addEventListener("click", function(e){e.stopPropagation();});
+
+    boton2.addEventListener("click", function(e) {
+        e.stopPropagation();
+        const hermanos = e.target.parentNode.parentNode.parentNode.childNodes;
+        for(let i=0; i<hermanos.length; i++) {
+            if(hermanos[i].nodeName.toLowerCase() === "img") {                                
+                const src = hermanos[i].getAttribute("src");
+                //Creamos el recuadro a la izquierda, en este inicialmente pondremos la imagen en un tamaño disminuido con todos sus detalles técnicos debajo. También crearemos botón para añadir al carrito de compras,
+                //botón para cerrar el recuadro, (¿y sobre la imagen seguiremos teniendo el botón para añadir a favoritos?)
+
+                //Si no se encuentra entre los hijos
+                // if(existe === 0){
+                //     const div = document.createElement("div");
+                //     div.setAttribute("class", "seeing");
+                //     div.setAttribute("style", "visibility: visible");
+                //     document.body.appendChild(div);
+                //     existe = 1;
+                // }
+            }
+        }
+    });
     boton3.addEventListener("click", function(e){e.stopPropagation();});
     boton4.addEventListener("click", function(e){e.stopPropagation();});
     boton4.addEventListener("mouseover", function(e){img4.src = "../../IMGSFirst/favorite3.png"});
@@ -128,7 +152,6 @@ const productos = (dato) => {
             // if(arreglo[i].pdt === element.textContent){
                 // element.textContent = "";
                 if(arreglo[i].pdt.startsWith("Pr")) {
-                    // console.log(arreglo[i])
                     creaTd(arreglo[i], fragmentoProd)
                 // td.textContent = arreglo[i].nombre.toUpperCase();
                 // const precio2 = document.createElement("span");
@@ -651,7 +674,7 @@ listaProd.addEventListener("mouseout", function(e){
     }
 }
 })
-console.time("Busqueda");
+// console.time("Busqueda");
 buscador.addEventListener("input", function(){
     const valor = buscador.value.toLowerCase();
     const img = document.querySelector("#selecciona ul");
@@ -693,7 +716,7 @@ buscador.addEventListener("input", function(){
     }
 }
 })
-console.timeEnd("Busqueda");
+// console.timeEnd("Busqueda");
 buscador.addEventListener("focus", function(e){
     e.stopPropagation();
 
