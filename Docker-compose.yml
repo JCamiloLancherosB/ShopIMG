@@ -1,0 +1,20 @@
+version: "3.9"
+services:
+  shop:
+    build: .
+    ports: 
+      - "8080:80"
+    links: 
+      - monguito
+  monguito: 
+    image: mongo
+    ports: 
+      - "27017:27017"
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=camilo
+      - MONGO_INITDB_ROOT_PASSWORD=password
+    volumes: 
+      - name-image:/data/db
+
+volumes:
+  name-image:  
