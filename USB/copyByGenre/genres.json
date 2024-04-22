@@ -1,0 +1,11 @@
+{
+    "rock": ["The Beatles", "Queen", "Led Zeppelin", "Pink Floyd", "The Rolling Stones", "AC/DC", "Nirvana", "Guns N' Roses", "Metallica", "U2", "The Who", "Red Hot Chili Peppers", "Radiohead", "Pearl Jam", "The Doors"],
+    "pop": ["Michael Jackson", "Madonna", "Britney Spears", "Beyoncé", "Justin Timberlake", "Katy Perry", "Lady Gaga", "Taylor Swift", "Adele", "Ed Sheeran", "Rihanna", "Ariana Grande", "Shakira", "Bruno Mars", "Maroon 5"],
+    "electronica": ["Daft Punk", "Avicii", "David Guetta", "Calvin Harris", "The Chemical Brothers", "Skrillex", "Tiesto", "Deadmau5", "Swedish House Mafia", "Martin Garrix", "Armin van Buuren", "Marshmello", "Zedd", "Disclosure", "Kaskade"],
+    "salsa": ["Grupo Niche", "Fruko y sus Tesos", "Joe Arroyo", "Willie Colón", "Héctor Lavoe", "Marc Anthony", "Oscar D'León", "Gilberto Santa Rosa", "Tito Puente", "Rubén Blades", "La Sonora Ponceña", "La India", "Eddie Santiago", "Jerry Rivera", "Sonora Carruseles"],
+    "merengue": ["Eddy Herrea", "Wilfrido Vargas", "Fulanito", "Juan Luis Guerra", "Sergio Vargas", "Chichi Peralta", "Elvis Crespo", "Rikarena", "Los hermanos Rosario", "Kinito Méndez"],
+    "norteñas": ["Los Tigres del Norte", "Intocable", "Ramón Ayala", "Los Huracanes del Norte", "Pesado", "Grupo Bronco", "Conjunto Primavera", "Los Invasores de Nuevo León", "Los Cadetes de Linares", "Los Rieleros del Norte", "Los Alegres de la Sierra", "La Maquinaria Norteña", "Los Tucanes de Tijuana", "Los Cardenales de Nuevo León", "La Leyenda"],
+    "rancheras": ["Vicente Fernández", "Alejandro Fernández", "Pedro Infante", "Antonio Aguilar", "Javier Solís", "Rocío Dúrcal", "José Alfredo Jiménez", "Pepe Aguilar", "Lola Beltrán", "Luis Miguel", "Juan Gabriel", "Jorge Negrete", "Lucha Villa", "Paquita la del Barrio", "Aída Cuevas"],
+    "popular": ["Luis Miguel", "Juan Gabriel", "Raphael", "Camilo Sesto", "José José", "Marco Antonio Solís", "Rocío Dúrcal", "Ana Gabriel", "Julio Iglesias", "Emmanuel", "Nino Bravo", "Paloma San Basilio", "Leo Dan", "Dyango", "Rocío Jurado"],
+    "vallenato": ["Carlos Vives", "Diomedes Díaz", "Jorge Celedón", "Silvestre Dangond", "Los Hermanos Zuleta (Emiliano y Poncho Zuleta)", "Peter Manjarrés", "Rafael Orozco", "Iván Villazón", "Los Betos", "El Binomio de Oro (Rafael Orozco y Israel Romero)"]
+}

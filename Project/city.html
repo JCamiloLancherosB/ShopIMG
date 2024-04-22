@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Example</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" charset="UTF-8">
+    <link href="./city.css" rel="stylesheet">
+</head>
+
+<body>
+
+<div onclick="console.log('Elemento padre')" id="padre">Acá van los elementos a los cuales les voy a añadir eventos
+    <ul>
+        <li onclick="console.log('Primer Elemento')">Primer Elemento</li>
+        <li onclick="console.log('Segundo Elemento')">Segundo Elemento</li>
+        <li id="tercer">Tercer Elemento</li>
+        <li onclick="console.log('Cuarto Elemento'), event.stopImmediatePropagation()" onclick="console.log('Segundo evento del cuarto elemento')">Cuarto evento</li>
+    </ul>
+</div><br><br><br><br>
+<a href="https://www.youtube.com/" target="_blank" id="yt">Enlace a youtube</a>
+
+<button id="multiplica" onclick="multi(2, 5)">Presiona para multiplicar</button>
+
+
+<button id="segundo">Segundo botón</button>
+
+<br><br><br><br>
+<form>Ingresar datos
+    <input name="datos" placeholder="Ingresar datos"></input>
+</form><br><br><br><br><br><br>
+
+<ul id="lista-dinamica"></ul>
+<template>
+  <li class="list">
+    <b>nombre: </b> <span class="text-danger">descripción...</span>
+  </li>
+</template>
+
+
+
+
+
+<script>
+
+const lista = document.getElementById("lista-dinamica");
+const arrayItem = ["item 1", "item 2", "item 3"];
+
+const fragment = document.createDocumentFragment();
+const template = document.querySelector("#template-li").content;
+
+arrayItem.forEach((item) => {
+  template.querySelector("span").textContent = item;
+  const clone = template.cloneNode(true);
+  // const clone = document.importNode(template, true);
+  fragment.appendChild(clone);
+});
+
+lista.appendChild(fragment);
+
+
+
+
+
+
+
+
+    const elementP = document.querySelector('#padre :nth-child(1)');
+    const primerE = elementP.querySelector('li');
+    const rango2 = document.createRange();
+    rango2.setStart(primerE.firstChild, 0)
+    rango2.setEnd(primerE.firstChild, 5)
+    const nuevoEl = document.createElement('b')
+    rango2.surroundContents(nuevoEl)
+    
+
+
+
+
+    let newElements = ''; 
+    for (i = 0; i < 100; i++) { 
+    newElements += `<p>New Element Number: ${i}</p>` 
+    } 
+    const div1 = document.getElementById('div1')
+    div1.innerHTML += newElements;
+
+
+
+    const tercer2 = document.getElementById('tercer');
+    const rango = document.createRange();
+    console.log(tercer2)
+    rango.setStart(tercer2.firstChild, 0);
+    rango.setEnd(tercer2.firstChild, 6);
+    const nuevoElement = document.createElement("b")
+    nuevoElement.style.color = 'blue'
+    rango.surroundContents(nuevoElement);
+
+
+    
+    document.addEventListener('click', function (e) {
+        if(e.target.matches('#segundo')) {
+            multi2(5, 8);
+            saludo('Camilo');
+            console.log('Evento añadido desde el document');
+        }
+        else console.log('No encontrado');
+        console.log(e.target)});
+
+
+
+    const multi2 = (a, b) => {
+        const elemento2 = document.createElement('p')
+        elemento2.textContent = a * b
+        document.body.appendChild(elemento2)
+    }
+    
+
+
+    const saludo = (nombre = 'Desconocido') => {
+        alert(`Hola ${nombre}`);
+    }
+
+    
+    // segundo.addEventListener('click', function(){multi2(3, 5)})
+    //segundo.addEventListener('click', () => saludo())
+    
+    
+    window.onload = function(){
+        const bienvenido = document.createElement('p');
+        bienvenido.textContent = 'Bienvenido, AMO';
+        bienvenido.style.color = 'red';
+        document.body.appendChild(bienvenido);
+    }
+
+    
+
+    const creaEvento = new Event('resultado');
+
+    document.body.addEventListener('resultado', function (){
+        const resultado = document.createElement('p');
+        resultado.textContent = `El resultado de la multiplicación es de`
+        resultado.style.color = 'red'
+        document.body.appendChild(resultado);
+    })
+    
+
+
+    const multi = (a, b) => {
+        const newElement = document.createElement('p');
+        newElement.textContent = a * b;
+        document.body.dispatchEvent(creaEvento);    
+        document.body.appendChild(newElement);
+    }
+
+
+
+
+// yt.addEventListener('click', function (){event.preventDefault()})
+tercer.addEventListener('click', function(){console.log('Tercer Elemento')}, true)
+padre.addEventListener('click', function(){console.log('Elemento padre')},true)
+
+
+
+</script><br><br><br><br><br><br><br>
+<div id="imagenSuperPuesta">
+    <img src="https://i.blogs.es/0ca9a6/aa/450_1000.webp" >
+    <img src="https://cdn.pixabay.com/photo/2015/12/01/15/43/black-1072366_1280.jpg" style="position: absolute; opacity: 80%; z-index: 1;">
+</div>
+
+</body>
+
+</html>

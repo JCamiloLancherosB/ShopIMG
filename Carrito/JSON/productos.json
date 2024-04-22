@@ -6,7 +6,7 @@
         "nombre": "pantalones", 
         "precio": "$30 - $100", 
         "disponibles": 20,
-        "img": "../../IMGSFirst/prendas/pantalones.png",
+        "img": "../IMGSFirst/prendas/pantalones.png",
         "jeansH": {"estilo": "", "botones": 3, "color": 1, "tallas": 1, "material": 1, "bota": 1, "ref": 1, "disponibles": 1},
         "jeansM": {"tallas": 1, "material": 1, "color": 1, "bota": 1, "ref": 1, "disponibles": 1}
     },
@@ -16,7 +16,7 @@
         "nombre": "camisas", 
         "precio": "$20 - $80", 
         "disponibles": 20,
-        "img": "../../IMGSFirst/prendas/camisa.png",
+        "img": "../IMGSFirst/prendas/camisa.png",
         "camisaLarga": {"precio": 1, "disponibles": 1}, 
         "camisaCorta": {"precio": 1, "disponibles": 1},
         "camisaPolo": {"precio": 1, "disponibles": 1}, 
@@ -29,7 +29,7 @@
         "nombre": "sombreros", 
         "precio": "$40 - $120", 
         "disponibles": 20,
-        "img": "../../IMGSFirst/prendas/sombrero.png"
+        "img": "../IMGSFirst/prendas/sombrero.png"
     },
     {
         "pdt": "Producto 4",
@@ -37,7 +37,7 @@
         "nombre": "chaquetas", 
         "precio": "$50 - $150", 
         "disponibles": 20,
-        "img": "../../IMGSFirst/prendas/chaqueta.png"
+        "img": "../IMGSFirst/prendas/chaqueta.png"
     },
     {
         "pdt": "Producto 5",
@@ -45,7 +45,7 @@
         "nombre": "abrigos", 
         "precio": "$80 - $300", 
         "disponibles": 20,
-        "img": "../../IMGSFirst/prendas/abrigo.png"
+        "img": "../IMGSFirst/prendas/abrigo.png"
     },
     {
         "pdt": "Producto 6",
@@ -53,7 +53,7 @@
         "nombre": "zapatos",
         "precio": "$40 - $120", 
         "disponibles": 20,
-        "img": "../../IMGSFirst/prendas/zapatos.png"
+        "img": "../IMGSFirst/prendas/zapatos.png"
     },
     {
         "pdt": "Producto 7",
@@ -61,7 +61,7 @@
         "nombre": "sudaderas", 
         "precio": "$20 - $80", 
         "disponibles": 20,
-        "img": "../../IMGSFirst/prendas/sudaderas.png"
+        "img": "../IMGSFirst/prendas/sudaderas.png"
     },
     {
         "pdt": "Producto 8",
@@ -69,7 +69,7 @@
         "nombre": "camisetas", 
         "precio": "$40 - $120", 
         "disponibles": 20,
-        "img": "../../IMGSFirst/prendas/camiseta.png"
+        "img": "../IMGSFirst/prendas/camiseta.png"
     },
     {
         "pdt": "Producto 9",
@@ -77,7 +77,7 @@
         "nombre": "bermudas", 
         "precio": "$20 - $80", 
         "disponibles": 20,
-        "img": "../../IMGSFirst/prendas/bermudas.png"
+        "img": "../IMGSFirst/prendas/bermudas.png"
     },
     {
         "pdt": "Accesorio 1",
@@ -85,7 +85,7 @@
         "nombre": "relojes", 
         "precio": "$50 - $300", 
         "disponibles": 20,
-        "img": "../../IMGSFirst/accesorios/reloj.png"
+        "img": "../IMGSFirst/accesorios/reloj.png"
     },
     {
         "pdt": "Accesorio 2",
@@ -93,7 +93,7 @@
         "nombre": "guantes", 
         "precio": "$30 - $80", 
         "disponibles": 20,
-        "img": "../../IMGSFirst/accesorios/guantes.png"
+        "img": "../IMGSFirst/accesorios/guantes.png"
     },
     {
         "pdt": "Accesorio 3",
@@ -101,7 +101,7 @@
         "nombre": "joyeria", 
         "precio": "$50 - $200", 
         "disponibles": 20,
-        "img": "../../IMGSFirst/accesorios/joyeria.png"
+        "img": "../IMGSFirst/accesorios/joyeria.png"
     },
     {
         "pdt": "Accesorio 4",
@@ -109,7 +109,7 @@
         "nombre": "collares", 
         "precio": "$15 - $60", 
         "disponibles": 20,
-        "img": "../../IMGSFirst/accesorios/collar.png"
+        "img": "../IMGSFirst/accesorios/collar.png"
     },
     {
         "pdt": "Accesorio 5",
@@ -117,7 +117,7 @@
         "nombre": "bufanda", 
         "precio": "$30 - $100", 
         "disponibles": 20,
-        "img": "../../IMGSFirst/accesorios/bufanda.png"
+        "img": "../IMGSFirst/accesorios/bufanda.png"
     },
     {
         "pdt": "Accesorio 6",
@@ -125,7 +125,7 @@
         "nombre": "cartera", 
         "precio": "$100 - $300", 
         "disponibles": 20,
-        "img": "../../IMGSFirst/accesorios/cartera.png"
+        "img": "../IMGSFirst/accesorios/cartera.png"
     },
     {
         "pdt": "Accesorio 7",
@@ -133,7 +133,7 @@
         "nombre": "anillos", 
         "precio": "$10 - $50", 
         "disponibles": 20,
-        "img": "../../IMGSFirst/accesorios/anillo.png"
+        "img": "../IMGSFirst/accesorios/anillo.png"
     },
     {
         "pdt": "Accesorio 8",
@@ -141,7 +141,7 @@
         "nombre": "gafas", 
         "precio": "$15 - $60", 
         "disponibles": 20,
-        "img": "../../IMGSFirst/accesorios/gafas.png"
+        "img": "../IMGSFirst/accesorios/gafas.png"
     },
     {
         "pdt": "Accesorio 9",
@@ -149,7 +149,7 @@
         "nombre": "pulseras", 
         "precio": "$20 - $100", 
         "disponibles": 20,
-        "img": "../../IMGSFirst/accesorios/pulsera.png"
+        "img": "../IMGSFirst/accesorios/pulsera.png"
     }
    ]
 }

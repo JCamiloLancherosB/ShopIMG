@@ -1,9 +1,10 @@
 *:link {
-    color: #331755;
+    color: #1a1647;
 }
 
 *:visited {
-    color: #331755;
+    /* color: #331755; */
+    color: #1a1647;
 }
 
 body{
@@ -57,7 +58,7 @@ body, html {
     right: 0px;
     height: 80px;
     color: white;
-    background: #331755;
+    background: #1a1647;
     z-index: 4;
     grid-template-rows: repeat(3, auto);
     grid-template-columns: repeat(6, auto);
@@ -69,10 +70,10 @@ body, html {
 }
 
 #clock {
-    position: absolute;
+    position: fixed;
     /* width: 200px;    */
     /* top: -5px; */
-    left: 30px;
+    right: 100px;
     color: #5F6B47;
     border: 1px solid #5F6B47;
 }
@@ -102,7 +103,7 @@ body, html {
     border: 1px solid #331755;
     border-top: none;
     border-radius: 0 0 4px 4px;
-    cursor: url("../../IMGSFirst/cursor2.png"), pointer;
+    cursor: url("../IMGSFirst/cursor2.png"), pointer;
 }
 
 #selecciona ul {
@@ -122,7 +123,7 @@ body, html {
     width: 20px; 
     height: 22px; 
     vertical-align: middle; 
-    background-image: url("../../IMGSFirst/lupasearch.png");
+    background-image: url("../IMGSFirst/lupasearch.png");
     background-repeat: no-repeat;
     margin-right: 8px; 
 }
@@ -137,7 +138,7 @@ body, html {
     width: 20px; 
     height: 15px; 
     vertical-align: middle; 
-    background-image: url("../../IMGSFirst/historial.png");
+    background-image: url("../IMGSFirst/historial.png");
     background-repeat: no-repeat;
     margin-right: 8px;
 }
@@ -240,10 +241,10 @@ body, html {
     grid-area: logo;
     height: 100%;
     width: 200px;
-    background-image: url("../../IMGSFirst/logo.png");
+    background-image: url("../IMGSFirst/logo.png");
     background-position: center;
     background-size: cover;
-    cursor: url("../../IMGSFirst/cursor2.png"), pointer;
+    cursor: url("../IMGSFirst/cursor2.png"), pointer;
     border-right:3px solid black;
     border-left: 3px solid black;
 }
@@ -405,7 +406,7 @@ h1 {
     /* background-color: beige; */
 }
 
-.seeing {
+#seeing {
     position: fixed;
     z-index: 5;
     left: 0;
@@ -413,6 +414,19 @@ h1 {
     width: 500px;
     height: 100%;
     background-color: #A0B17F;
+}
+
+#contImgS {
+    background-color: #1a1647;
+    width: auto;
+    height: 500px;
+    border-bottom: 2px solid black;
+}
+
+#imgSeeing {
+    z-index: 1;
+    height: 500px;
+    width: auto;
 }
 
 .precio {

@@ -27,8 +27,17 @@ const complementar = document.getElementById("complementar");
 const fragmentoAcc = document.createDocumentFragment(), fragmentoProd = document.createDocumentFragment();
 const opac = document.body.firstChild, opacImg = document.querySelector("#opac img");
 const botonesOver = document.getElementsByClassName("overlay");
-const lat = document.getElementById("barLat");
+const lat = document.getElementById("barLat"), seeingOne = document.getElementById("seeing");
 let counterBtn1 = 0;
+
+function removeAttributes(element, attribute) {
+    const atributos = element.attributes;
+
+    for(let i = atributos.length - 1; i >= 0; i--) {
+        if(atributos[i].nodeName === attribute) element.removeAttribute(attribute);
+    }    
+
+}
 
 const creaTd = (elementos, fragmento) => { //Crea los productos de las tablas, adjuntando imagenes, precios, botones de visualizar, favorito... También añade la función de overlay cuando se hace clic sobre botón de visualizar imagen en grande
     const td = document.createElement("td"), img = document.createElement("img"), div = document.createElement("div"), name = document.createElement("span");
@@ -43,6 +52,7 @@ const creaTd = (elementos, fragmento) => { //Crea los productos de las tablas, a
     td.appendChild(precio2);
     // const src = elementos.img;
     img.setAttribute("src", elementos.img);
+    console.log("la dirección es: " + elementos.img)
     img.setAttribute("alt", "Imagen de una prenda o un accesorio");
     const divBtn = document.createElement("div"), boton1 = document.createElement("button"), boton2 = document.createElement("button"), boton3 = document.createElement("button"), boton4 = document.createElement("button");
     boton1.setAttribute("class", "btnView");
@@ -50,13 +60,13 @@ const creaTd = (elementos, fragmento) => { //Crea los productos de las tablas, a
     boton3.setAttribute("class", "btnCart");
     boton4.setAttribute("class", "btnFavorite");
     const img1 = document.createElement("img"), img2 = document.createElement("img"), img3 = document.createElement("img"), img4 = document.createElement("img");
-    img1.setAttribute("src", "../../IMGSFirst/expandir2.png");
+    img1.setAttribute("src", "../IMGSFirst/expandir2.png");
     img1.setAttribute("title", "View");
-    img2.setAttribute("src", "../../IMGSFirst/details.png");
+    img2.setAttribute("src", "../IMGSFirst/details.png");
     img2.setAttribute("title", "View Details");
-    img3.setAttribute("src", "../../IMGSFirst/carrito2.png");
+    img3.setAttribute("src", "../IMGSFirst/carrito2.png");
     img3.setAttribute("title", "Add to cart");
-    img4.setAttribute("src", "../../IMGSFirst/favorite.png");
+    img4.setAttribute("src", "../IMGSFirst/favorite.png");
     img4.setAttribute("title", "Add to favorites");
     divBtn.setAttribute("class", "divBtn");
     boton1.appendChild(img1);
@@ -83,8 +93,13 @@ const creaTd = (elementos, fragmento) => { //Crea los productos de las tablas, a
     });
     boton1.addEventListener("click", function(e) {
         e.stopPropagation();
+
+        //Eliminamos todos los atributos del <section> que vamos a reutilizar, haremos esto cada vez que lo necesitemos, para agregar la nueva información sin necesidad de utilizar 
+        //nuevos contenedores, opac podría tener el atributo style para que aparezca opaca la pantalla y enfocada la información que queremos destacar.
+        removeAttributes(opac, "id");
+        removeAttributes(opac, "class");
         
-        if(!opac.getAttribute("id")) {
+        // if(!opac.getAttribute("id")) { //YA NO ES NECESARIO UTILIZAR ESTE IF YA QUE SIEMPRE QUE EJECUTEMOS LA FUNCIÓN NO TENDRÁ NINGÚN ATRIBUTO ID O CLASS O CUALQUIER OTRO QUE PONGAMOS EN LA FUNCION REMOVEATTRIBUTES
         // const div = document.createElement("div");
         const img = document.createElement("img");
         const pa = boton1.parentNode.parentNode.lastChild.getAttribute("src");
@@ -97,7 +112,7 @@ const creaTd = (elementos, fragmento) => { //Crea los productos de las tablas, a
         document.body.appendChild(img);
         counterBtn1 = 1;
         }
-    }
+    // }
 
     if(opac.getAttribute("id")) {
         const pa = boton1.parentNode.parentNode.lastChild.getAttribute("src");
@@ -114,12 +129,25 @@ const creaTd = (elementos, fragmento) => { //Crea los productos de las tablas, a
 
     boton2.addEventListener("click", function(e) {
         e.stopPropagation();
-        const hermanos = e.target.parentNode.parentNode.parentNode.childNodes;
+        
+        seeingOne.setAttribute("style", "visibility: visible");
+        //Eliminamos todos los atributos del <section> que vamos a reutilizar, haremos esto cada vez que lo necesitemos, para agregar la nueva información sin necesidad de utilizar 
+        //nuevos contenedores, opac podría tener el atributo style para que aparezca opaca la pantalla y enfocada la información que queremos destacar.
+        removeAttributes(opac, "id");
+        removeAttributes(opac, "class");
+        //Luego de eliminar cualquier atributo de identificación debemos añadir el propio del botón para controlar las nuevas funciones que le vamos a asignar y la imagen que va a tener, en este caso, el nuevo orden
+        //que tendrá el recuadro
+
+        //ADEMÁS AÑADIR FUNCIÓN QUE SI SE TOCA CUALQUIER PARTE DE LA PANTALLA MENOS "OPAC" DEBEMOS VOLVER A LLAMAR A LA FUNCIÓN REMOVEATTRIBUTES(OPAC) PARA DEJAR OPAC LIBRE PARA USAR
+
+        const contSeeing = document.getElementById("contImgS"), hermanos = e.target.parentNode.parentNode.parentNode.childNodes, img = document.createElement("img"); //img = seeingOne.firstChild.firstChild, ;
+        
         for(let i=0; i<hermanos.length; i++) {
             if(hermanos[i].nodeName.toLowerCase() === "img") {                                
-                const src = hermanos[i].getAttribute("src");
-                //Creamos el recuadro a la izquierda, en este inicialmente pondremos la imagen en un tamaño disminuido con todos sus detalles técnicos debajo. También crearemos botón para añadir al carrito de compras,
-                //botón para cerrar el recuadro, (¿y sobre la imagen seguiremos teniendo el botón para añadir a favoritos?)
+                const src = hermanos[i].getAttribute("src"); //Tomamos la url de la imagen para copiarla en el nuevo recuadro
+                img.setAttribute("src", src);                
+                //Creamos el recuadro a la izquierda, en este inicialmente pondremos la imagen en un tamaño reducido con todos sus detalles técnicos debajo. También crearemos botón para añadir al carrito de compras,
+                //botón para cerrar el recuadro, (¿y debajo de la imagen tendremos el botón para añadir a favoritos?)
 
                 //Si no se encuentra entre los hijos
                 // if(existe === 0){
@@ -131,11 +159,13 @@ const creaTd = (elementos, fragmento) => { //Crea los productos de las tablas, a
                 // }
             }
         }
+        img.setAttribute("id", "imgSeeing");
+        contImgS.appendChild(img);
     });
     boton3.addEventListener("click", function(e){e.stopPropagation();});
     boton4.addEventListener("click", function(e){e.stopPropagation();});
-    boton4.addEventListener("mouseover", function(e){img4.src = "../../IMGSFirst/favorite3.png"});
-    boton4.addEventListener("mouseout", function(e){img4.src = "../../IMGSFirst/favorite.png"});
+    boton4.addEventListener("mouseover", function(e){img4.src = "../IMGSFirst/favorite3.png"});
+    boton4.addEventListener("mouseout", function(e){img4.src = "../IMGSFirst/favorite.png"});
     fragmento.appendChild(td);
 }
 
@@ -235,7 +265,7 @@ const productos = (dato) => {
     // fragmentoAcc.appendChild(tdArrow);
     // fragmentoProd.appendChild(tdArrow);
     const tdArrow = document.createElement("td"), des = document.createElement("button"), img = document.createElement("img");
-    img.setAttribute("src", "../../IMGSFirst/desIzq.png");
+    img.setAttribute("src", "../IMGSFirst/desIzq.png");
     des.setAttribute("class", "desDer");
     tdArrow.setAttribute("class", "des");
     des.appendChild(img);
@@ -343,6 +373,7 @@ let counterDer = 0, counterIzq = 0, oculta = 0;
 
 document.addEventListener("click", function(e){
     e.stopPropagation();
+
     const overlapping = document.getElementById("overlapping");
 
     if(overlapping) {
@@ -451,6 +482,12 @@ document.addEventListener("click", function(e){
             top: 850,
             behavior: "smooth"
         })
+    }
+
+    if(e.target !== seeingOne) { 
+        // seeingOne.firstChild.firstChild.src = "";
+        seeingOne.firstChild.innerHTML = ""
+        seeingOne.style.visibility = "hidden";
     }
 
 });
@@ -904,3 +941,4 @@ setInterval(() => {
 
 // clearInterval(time2);
 // hora()
+

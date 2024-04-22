@@ -1,0 +1,8 @@
+#imagenSuperPuesta img {
+ height: 200px;
+ width: 200px;
+}
+
+#imagenSuperPuesta img {
+    position: absolute;
+}

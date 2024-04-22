@@ -1,0 +1,32 @@
+{
+    "supports": [
+        {
+            "productNumber": 1,
+            "productImg" : "url",
+            "productBoxImg": "url",
+            "price": 13213,
+            "length": "large",
+            "type": "magnet",
+            "colors": ["red", "white", "black"],
+            "amount": 3,
+            "fixing": ["suction cup", "adhesive glue"],
+            "adjustable": "to screw"
+        },
+        {
+            "type": "short"
+        },
+        {
+            "type": "adjustable",
+            "amount": 2
+        }
+    ],
+    "headphones": {
+        "bluetooth#1": [
+            {"1": 2,
+            "2": 2,
+            "3": 3}
+        ],
+        "bluetooth#2": [],
+        "cable": []
+    }
+}
